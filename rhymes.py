@@ -47,7 +47,7 @@ def game(filled_rhyme,ans,counter,chances):
 		print "Now the rhyme reads like this:\n\n" + filled_rhyme
 		user_answer=raw_input("\n*****\n\nWhat word replaces"+blank_list[counter]+"?\n")
 		if answer_check (user_answer,ans[counter]) == True:
-			filled_rhyme=filled_rhyme.replace((blank_list[counter]),user_answer)
+			filled_rhyme=filled_rhyme.replace((blank_list[counter]),ans[counter])
 		else:
 			chances=chances-1
 			if chances==0:
