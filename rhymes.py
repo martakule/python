@@ -30,7 +30,9 @@ def level_choice():
 	else:
 		return level_choice()
 
-# This function welcomes to a level and pulls the level's rhyme and answers. It also contains the counter that controls the whole game.
+# This function welcomes to a level and pulls the level's rhyme and answers. 
+# It also contains the counter that controls the whole game.
+# And the counter for wrong answers because I can't figure it out.
 def start_game(ques,ans):
 	print "\n*****\n\nYou've picked level " + level + "! \nComplete the rhyme below one word at a time.\nYou will have 5 tries for each answer\nGood luck!\n\n*****\n"
 	global filled_rhyme
@@ -41,7 +43,9 @@ def start_game(ques,ans):
 	chances=wrong_limit
 	game (filled_rhyme,ans,counter,chances)
 	
-#This function runs the game: loops through the blanks, verifies anwers, and fills the rhyme as answers come. It also ends the game when the counter hits the last number.
+# This function runs the game: loops through the blanks, verifies anwers, and fills the rhyme as answers come. 
+# It also ends the game when the counter hits the last number.
+# Now it also handles the wrong answer, missing the counter per question and separate sentences.
 def game(filled_rhyme,ans,counter,chances):
 	while counter<len(blank_list):
 		print "Now the rhyme reads like this:\n\n" + filled_rhyme
