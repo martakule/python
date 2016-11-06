@@ -11,8 +11,21 @@ As you will see in the code, this is the structure:
 3. game(filled_rhyme,ans,counter,chances)
 4. answer_check (user_answer,ans)
 
-Function start_game() includes the global counter that controls the route through each question blank, and correct answer.
+Function start_game() includes the global counter that controls the route through each question, blank, and correct answer.
 It also includes the counter for wrong answers, which ends up giving the user 5 chances for the whole game, not per question.
 
-My 
+My "wrong answer" message is aslo simplistic: "You have " +str(chances) + " more tires!"
+It's the same for all number, even 1.
+The model quiz for this project has a different sentence for each number of remianing tries.
+
+The behaviour of the model quiz makes me think the treatment of wrong answers is enclosed in a separate function that maintains a counter and print different messages depending on the number of tries left.
+
+I had initiall put my wrong-answer counter inside answer_check (user_answer,ans), which is subordintate to game(), and which refers back to game (). Something like this:
+
+'''def answer_check (user_answer,ans):
+	if user_answer.lower()==ans.lower():
+		print "\nCorrect!\n"
+		return True 
+	else:
+		return False'''
 
