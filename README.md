@@ -22,7 +22,7 @@ The behaviour of the model quiz makes me think the treatment of wrong answers is
 
 I had initiall put my wrong-answer counter inside answer_check (user_answer,ans), which is subordintate to game(), and which refers back to game (). Something like this:
 
-def answer_check (user_answer,ans):
+```def answer_check (user_answer,ans):
     if user_answer.lower()==ans.lower():
         print "\nCorrect!\n"
         return True 
@@ -34,7 +34,7 @@ def answer_check (user_answer,ans):
 	    index=index-1
 	else:
 	    print "Game over"
-	    quit ()
+	    quit ()```
 
 Now, the problem with all this is that whenever you answer the same question wrong the second time, the function answer_check () is called afresh and the index is ZERO again.
 
