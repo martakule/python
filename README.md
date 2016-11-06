@@ -22,10 +22,10 @@ The behaviour of the model quiz makes me think the treatment of wrong answers is
 
 I had initiall put my wrong-answer counter inside answer_check (user_answer,ans), which is subordintate to game(), and which refers back to game (). Something like this:
 
-'''def answer_check (user_answer,ans):
+```def answer_check (user_answer,ans):
 	if user_answer.lower()==ans.lower():
 		print "\nCorrect!\n"
 		return True 
 	else:
-		return False'''
+		return False```
 
