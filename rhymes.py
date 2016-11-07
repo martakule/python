@@ -58,13 +58,21 @@ def game(filled_rhyme,ans,counter,chances):
 				print "Game over.\nThanks for playing!"
 				quit()
 			else:
-				print "\nTry again!\nYou have " +str(chances) + " more tires!"
+				wrong_answer_countdown(chances)
 				return game(filled_rhyme,ans,counter,chances)
 		counter+=1
 	if counter==len(blank_list):
 		print filled_rhyme
 		print "\n*****\n\nCongratulations! You completed the game.\nThanks for playing!"
 
+def wrong_answer_countdown(chances):
+	if chances > wrong_limit-(wrong_limit-2):
+		print "\nTry again!\nYou have " +str(chances) + " more tires!"
+	if chances == wrong_limit-(wrong_limit-2):
+		print "\nThink before you answer!\nYou have only " +str(chances) + " more tires!"
+	if chances == wrong_limit-(wrong_limit-1):
+		print "\nMake this count!\nThis is your " +str(chances) + " last try!"
+		
 #This function takes the user's answer and checks it against the provided answers, ignoring case.
 def answer_check (user_answer,ans):
 	if user_answer.lower()==ans.lower():
