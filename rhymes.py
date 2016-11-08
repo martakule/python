@@ -12,19 +12,18 @@ levels=['easy','medium','hard']
 #The number of allowed wrong aswers per question
 wrong_limit=5
 
+safe_word="stop"
+
 # This function prompts the user to pick a level and loads the appropriate level's data from above.
 def level_choice():
-	global level
-	choice = raw_input("Pick a level by typing easy, medium, or hard.\n").lower()
-	level=choice
-	if choice=="easy":
-		return start_game(easy_questions, easy_answers)
-	if choice=="medium":
-		return start_game(medium_questions, medium_answers)
-	if choice=="hard":
-		return start_game(hard_questions, hard_answers)
-	else:
+	choice = raw_input("Pick a level by typing easy, medium, or hard.\n")
+	if choice.lower() not in levels:
+		print "Invalid input.\n"
 		return level_choice()
+	else:
+		choice=levels.index(choice)
+		print print "\n*****\n\nYou've picked level " + levels[choice] + "! \nComplete the rhyme below one word at a time.\nYou will have " + str(wrong_limit) + " tries for each question\nIf you want to stop the game at any time, just type in " + safe_word + "\nGood luck!\n\n*****\n"
+		return game (questions[choice],answers[choice])	
 
 # This function welcomes to a level and pulls the level's rhyme and answers. 
 # It also contains the counter that controls the whole game.
