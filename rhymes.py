@@ -28,8 +28,17 @@ def level_choice():
 		counter=0
 		global chances
 		chances=wrong_limit
-		return game (filled_rhyme,answers[choice],counter,chances)	
+		return start_game (questions[choice],answers[choice])	
 
+def start_game(ques,ans):
+	global filled_rhyme
+	filled_rhyme=ques	
+	global counter
+	counter=0
+	global chances
+	chances=wrong_limit
+	return game (filled_rhyme,ans,counter,chances)
+	
 # This function runs the game: loops through the blanks, verifies anwers, and fills the rhyme as answers come. 
 # It also ends the game when the counter hits the last number.
 # Now it also handles the wrong answer, missing the counter per question and separate sentences.
