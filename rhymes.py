@@ -51,6 +51,7 @@ def game(filled_rhyme,ans,counter,chances):
 		print "Now the rhyme reads like this:\n\n" + filled_rhyme
 		user_answer=raw_input("\n*****\n\nWhat word replaces"+blank_list[counter]+"?\n")
 		if answer_check (user_answer,ans[counter]) == True:
+			chances=wrong_limit #Following advice on the forum, I added this to reset wrong answers for the whole game.
 			filled_rhyme=filled_rhyme.replace((blank_list[counter]),ans[counter])
 		else:
 			chances=chances-1
@@ -58,13 +59,21 @@ def game(filled_rhyme,ans,counter,chances):
 				print "Game over.\nThanks for playing!"
 				quit()
 			else:
-				print "\nTry again!\nYou have " +str(chances) + " more tires!"
+				wrong_answer_countdown(chances) #And this simple print function doesn't use any counters, so it doesn't reset.
 				return game(filled_rhyme,ans,counter,chances)
 		counter+=1
 	if counter==len(blank_list):
 		print filled_rhyme
 		print "\n*****\n\nCongratulations! You completed the game.\nThanks for playing!"
 
+def wrong_answer_countdown(chances):
+	if chances > wrong_limit-(wrong_limit-2):
+		print "\nTry again!\nYou have " +str(chances) + " more tires!"
+	if chances == wrong_limit-(wrong_limit-2):
+		print "\nThink before you answer!\nYou have only " +str(chances) + " more tires!"
+	if chances == wrong_limit-(wrong_limit-1):
+		print "\nMake this count!\nThis is your " +str(chances) + " last try!"
+		
 #This function takes the user's answer and checks it against the provided answers, ignoring case.
 def answer_check (user_answer,ans):
 	if user_answer.lower()==ans.lower():
