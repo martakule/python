@@ -23,25 +23,17 @@ def level_choice():
 	else:
 		choice=levels.index(choice)
 		print print "\n*****\n\nYou've picked level " + levels[choice] + "! \nComplete the rhyme below one word at a time.\nYou will have " + str(wrong_limit) + " tries for each question\nIf you want to stop the game at any time, just type in " + safe_word + "\nGood luck!\n\n*****\n"
-		return game (questions[choice],answers[choice])	
+		filled_rhyme=questions[choice]
+		global counter
+		counter=0
+		global chances
+		chances=wrong_limit
+		return game (filled_rhyme,answers[choice],counter,chances)	
 
-# This function welcomes to a level and pulls the level's rhyme and answers. 
-# It also contains the counter that controls the whole game.
-# And the counter for wrong answers because I can't figure it out.
-def start_game(ques,ans):
-	print "\n*****\n\nYou've picked level " + level + "! \nComplete the rhyme below one word at a time.\nYou will have " + str(wrong_limit) + " tries for each question\nGood luck!\n\n*****\n"
-	global filled_rhyme
-	filled_rhyme=ques	
-	global counter
-	counter=0
-	global chances
-	chances=wrong_limit
-	game (filled_rhyme,ans,counter,chances)
-	
 # This function runs the game: loops through the blanks, verifies anwers, and fills the rhyme as answers come. 
 # It also ends the game when the counter hits the last number.
 # Now it also handles the wrong answer, missing the counter per question and separate sentences.
-def game(filled_rhyme,ans,counter,chances):
+def game(rhyme,ans,counter,chances):
 	while counter<len(blanks):
 		print "Now the rhyme reads like this:\n\n" + filled_rhyme
 		user_answer=raw_input("\n*****\n\nWhat word replaces"+blanks[counter]+"?\n\n>")
