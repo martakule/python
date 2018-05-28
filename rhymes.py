@@ -32,7 +32,7 @@ def level_choice():
 		return game (rhyme,answers[choice],counter,chances)	
 	
 # This function takes, correct answers and the poem, counter, and number of allowed wrong answers 
-# assigned in level_choice(). It prints the poem woth blanks, asks uses for answer.
+# assigned in level_choice(). It prints the poem with blanks, asks user for answer.
 # Correct answer replaces the blank with the right answer from the list.
 # Wrong answer subtracts one remaining allowed wrong answer and checks for their number.
 # If it's 0, it prints game over and quits. The function then adds 1 to the controlling counter.
